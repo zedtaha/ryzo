@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ryzo"
+version = "0.1.0"
+description = "The interactive editor for R, modelled after Pyzo"
+readme = "README.md"
+license = { text = "BSD-2-Clause" }
+requires-python = ">=3.9"
+dependencies = ["PySide6>=6.4"]
+keywords = ["R", "IDE", "editor", "interactive", "statistics"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: R",
+    "Topic :: Software Development :: Integrated Development Environments (IDE)",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.gui-scripts]
+ryzo = "ryzo.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["ryzo*"]
+
+[tool.setuptools.package-data]
+ryzo = ["kernel/*.R", "resources/*"]
